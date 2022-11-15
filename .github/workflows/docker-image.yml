@@ -16,3 +16,10 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag myfirstimagepush:$(date +%s)
+    - name: Push Docker Image
+    
+      with:
+        image: hassamkhan123/cicdrepo
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
